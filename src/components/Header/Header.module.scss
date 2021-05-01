@@ -1,0 +1,77 @@
+@import '../../styles/variables.scss';
+
+.header {
+  background-color: $header-bg;
+
+  &__content {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 13px;
+
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+
+    &-text {
+      padding-top: 4px;
+    }
+  }
+
+  &__cart {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 5px;
+    position: relative;
+
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: inherit;
+
+    &-text {
+      font-size: 15px;
+      color: #C90EA5;
+    }
+
+    &-indicator {
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      right: 0;
+      top: -7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: #FF1876;
+      color: #fff;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      font-size: 9px;
+    }
+  }
+
+  &::after {
+    display: block;
+    height: 1px;
+    width: 100%;
+
+    content: '';
+    opacity: 0.3;
+    background: linear-gradient(
+      270deg,
+      #7e00e8 0%,
+      #ff1876 54.17%,
+      #bb0cb2 100%
+    );
+  }
+}
