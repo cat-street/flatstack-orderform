@@ -1,0 +1,117 @@
+@import '../../styles/variables.scss';
+
+.summary {
+  padding: 24px 10px 15px;
+  background-color: rgba($color: $page-bg, $alpha: 0.5);
+
+  &__header {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin: 0;
+
+    color: $accent-color;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  &__edit-button {
+    @extend %link-button;
+    @extend %hover;
+
+    color: $dim-lighter-color;
+    text-decoration: underline;
+  }
+
+  &__item {
+    padding: 10px 5px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-bottom: 1px solid rgba($color: $dim-color, $alpha: 0.2);
+
+    &-image {
+      width: 45px;
+      height: 45px;
+      padding: 2px;
+
+      border-radius: 1px;
+      border: 1px solid #e3e3e3;
+      background-color: #f3f3f3;
+
+      object-fit: contain;
+    }
+
+    &-name {
+      margin: 0 0 7px;
+
+      font-size: 12px;
+      font-weight: 400;
+      color: $dim-color;
+    }
+
+    &-info p {
+      margin: 0;
+
+      font-size: 10px;
+      color: $text-lighter-color;
+    }
+
+    &-price {
+      margin-left: auto;
+
+      font-size: 12px;
+      color: $dim-color;
+    }
+  }
+
+  &__subtotal {
+    padding: 13px 5px 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    font-size: 12px;
+    color: $dim-color;
+    border-bottom: 1px solid rgba($color: $dim-color, $alpha: 0.2);
+
+    li {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__total {
+    margin: 0;
+    padding: 14px 5px;
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 12px;
+    font-weight: 700;
+    color: $accent-darker-color;
+  }
+
+  &__legal {
+    margin: auto 0 0;
+
+    font-size: 10px;
+    color: $dim-lightest-color;
+    text-align: center;
+
+    &-link {
+      @extend %link-button;
+      @extend %hover;
+
+      font-size: inherit;
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import ContentWrapper from '../ContentWrapper/ContentWrapper';
 
-import logoImage from '../../images/logo_img.svg';
-import logoText from '../../images/logo_txt.svg';
-import cartIcon from '../../images/cart_icon.svg';
+import logoImage from '../../assets/logo_img.svg';
+import logoText from '../../assets/logo_txt.svg';
+import cartIcon from '../../assets/cart_icon.svg';
 import styles from './Header.module.scss';
 
 const Header: FC = () => (

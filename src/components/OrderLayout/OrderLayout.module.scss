@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.order {
+  margin: 45px 0;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+
+  border-radius: 5px;
+  box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.07);
+  background: linear-gradient(180deg, #ffffff 0%, #fefefe 100%);
+}
+
+@media (max-width: 700px) {
+  .order {
+    display: block;
+  }
+}

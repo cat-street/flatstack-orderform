@@ -1,18 +1,34 @@
 $page-bg: #e6e9f0;
 $header-bg: #fff;
-$form-bg: #fff;
-$button-bg: rgba(90, 16, 148, 0.8);
 $item-bg: #f3f3f3;
 
 $text-color: #000;
-$header-color: #5a1094;
-$sub-color: #777879;
-$description-color: #2b2525;
-$total-color: #431c5d;
-$placeholder-color: #6b6b6b;
-$step-color: #979797;
-$button-color: #fff;
-$terms-color: #9c9c9c;
+$text-lighter-color: #2b2525;
+$dim-color: #777879;
+$dim-lighter-color: #979797;
+$dim-lightest-color: #9c9c9c;
+$accent-color: #5a1094;
+$accent-darker-color: #431c5d;
 
+$placeholder-color: #6b6b6b;
+
+$button-bg: rgba(90, 16, 148, 0.8);
+$button-text-color: #fff;
 $button-border: 1px solid rgba(67, 28, 93, 0.8);
-$item-border: 1px solid #e3e3e3;
+
+%link-button {
+  padding: 0;
+
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+%hover {
+  transition: opacity 200ms ease-out;
+
+  &:hover {
+    opacity: .7;
+  }
+}

@@ -11,14 +11,12 @@
   }
 
   &__logo {
+    @extend %link-button;
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 13px;
-
-    border: 0;
-    background-color: transparent;
-    cursor: pointer;
 
     &-text {
       padding-top: 4px;
@@ -26,16 +24,16 @@
   }
 
   &__cart {
+    @extend %link-button;
+    @extend %hover;
+
+    padding-right: 7px;
+    position: relative;
+
     display: flex;
     justify-content: flex-end;
     align-items: baseline;
     gap: 5px;
-    position: relative;
-
-    border: 0;
-    background-color: transparent;
-    cursor: pointer;
-    font-family: inherit;
 
     &-text {
       font-size: 15px;
@@ -48,15 +46,16 @@
       position: absolute;
       right: 0;
       top: -7px;
+
       display: flex;
       justify-content: center;
       align-items: center;
 
-      background: #FF1876;
+      font-size: 9px;
       color: #fff;
+      background: #FF1876;
       border: 1px solid #fff;
       border-radius: 50%;
-      font-size: 9px;
     }
   }
 
