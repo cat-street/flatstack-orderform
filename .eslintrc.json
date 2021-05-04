@@ -23,12 +23,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-      "react/jsx-props-no-spreading": [
-        "error",
-        {
-          "custom": "ignore"
-        }
-      ],
+      "react/jsx-props-no-spreading": "off",
       "react/react-in-jsx-scope": "off",
       "react/jsx-one-expression-per-line": "off"
     }

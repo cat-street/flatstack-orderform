@@ -3,12 +3,11 @@ import luhn from 'fast-luhn';
 
 import countryList from '../../utils/countryList';
 
-const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+const phoneRegExp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
 
-export default Yup.object({
+const userSchema = Yup.object({
   fullName: Yup.string().required("Please enter recipient's full name"),
   yourFullName: Yup.string().required('Please enter your name'),
-  cardName: Yup.string().required('Please enter the name from the card'),
   phone: Yup.string()
     .matches(phoneRegExp, 'Phone number is not valid')
     .required("Please enter recipient's phone"),
@@ -17,17 +16,22 @@ export default Yup.object({
   city: Yup.string().required('City is required'),
   country: Yup.string().oneOf(countryList).required('Country is required'),
   zip: Yup.string()
-    .matches(/^[0-9A-Za-z-]{4,10}$/, 'Not a valid Zip code')
+    .matches(/^\w{3,8}(( |-)?\w{3,4})?$/, 'Not a valid Zip code')
     .required('Zip code is required'),
   email: Yup.string()
     .email('Invalid email address')
     .required('Please enter your email'),
+});
+
+const cardSchema = Yup.object({
+  cardName: Yup.string().required('Please enter the name from the card'),
   card: Yup.string()
-    .test('test-card', 'Card number is invalid',
-      (value) => luhn(value as string))
+    .test('test-card', 'Card number is invalid', (value) => luhn(value as string))
     .required('Card number is required'),
   cardDate: Yup.string().required('Card expire date is required'),
   cvv: Yup.string()
     .matches(/^[0-9]{3}$/, 'Not a valid CVV')
     .required('CVV is required'),
 });
+
+export { userSchema, cardSchema };
