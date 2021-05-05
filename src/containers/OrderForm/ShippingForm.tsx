@@ -1,34 +1,34 @@
 import { FC } from 'react';
 import { Form, Formik } from 'formik';
 
-import { userSchema } from './validationSchema';
+import { shippingSchema } from './validationSchema';
 import countryList from '../../utils/countryList';
 import styles from './Form.module.scss';
-import FormTextInput from './FormTextInput';
-import FormSelect from './FormSelect';
+import FormInputText from './FormInputText';
+import FormInputSelect from './FormInputSelect';
 
 type Values = {
-  fullName: string;
+  name: string;
   phone: string;
-  address1: string;
+  address: string;
   address2: string;
   city: string;
   country: string;
-  zip: string;
+  'postal-code': string;
 };
 
 const ShippingForm: FC = () => (
   <Formik
     initialValues={{
-      fullName: '',
+      name: '',
       phone: '',
-      address1: '',
+      address: '',
       address2: '',
       city: '',
       country: '',
-      zip: '',
+      'postal-code': '',
     }}
-    validationSchema={userSchema}
+    validationSchema={shippingSchema}
     onSubmit={(values: Values) => {
       console.log(values);
     }}
@@ -37,9 +37,9 @@ const ShippingForm: FC = () => (
       <h2 className={styles.form__title}>Shipping Info</h2>
       <h3 className={styles.form__subtitle}>Recipient</h3>
       <div className={styles.form__group}>
-        <FormTextInput name="fullName" type="text" placeholder="Full Name" />
+        <FormInputText name="name" type="text" placeholder="Full Name" />
         <div className={styles.form__columns}>
-          <FormTextInput name="phone" type="text" placeholder="Daytime Phone" />
+          <FormInputText name="phone" type="text" placeholder="Daytime Phone" />
           <p className={styles['form__phone-info']}>
             For delivery
             <br />
@@ -50,12 +50,12 @@ const ShippingForm: FC = () => (
 
       <h3 className={styles.form__subtitle}>Address</h3>
       <div className={styles.form__group}>
-        <FormTextInput
-          name="address1"
+        <FormInputText
+          name="address"
           type="text"
           placeholder="Street Address"
         />
-        <FormTextInput
+        <FormInputText
           name="address2"
           type="text"
           placeholder="Apt, Suite, Bldg, Gate Code. (optional)"
@@ -63,22 +63,24 @@ const ShippingForm: FC = () => (
       </div>
 
       <div className={styles.form__group}>
-        <FormTextInput name="city" type="text" placeholder="City" />
+        <FormInputText name="city" type="text" placeholder="City" />
       </div>
 
       <div className={styles.form__group}>
         <div className={styles.form__columns}>
-          <FormSelect
+          <FormInputSelect
             name="country"
             list={countryList}
             placeholder="Country"
             classMixin={styles.input__field_select}
           />
-          <FormTextInput name="zip" type="text" placeholder="Zip" />
+          <FormInputText name="postal-code" type="text" placeholder="Zip" />
         </div>
       </div>
 
-      <button type="submit">Continue</button>
+      <button type="submit" className={styles.form__submit}>
+        Continue
+      </button>
     </Form>
   </Formik>
 );

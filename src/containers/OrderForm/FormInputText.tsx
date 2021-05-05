@@ -1,21 +1,24 @@
 import { FieldHookConfig, useField } from 'formik';
 
-import styles from './Form.module.scss';
+import styles from './FormInput.module.scss';
 
 type Props = {
   classMixin?: string;
 };
 
-const FormTextInput = (props: Props & FieldHookConfig<string>) => {
+const FormInputText = (props: Props & FieldHookConfig<string>) => {
   const [field, meta] = useField(props);
   const { type, placeholder, classMixin } = props;
+
   return (
     <div className={styles.input}>
       {meta.touched && meta.error ? (
         <div className={styles.input__error}>{meta.error}</div>
       ) : null}
       <input
-        className={`${styles.input__field} ${classMixin && styles[classMixin]}`}
+        className={`${styles.input__field} ${
+          classMixin && styles[classMixin]
+        } ${meta.error ? styles.input__field_error : null}`}
         type={type}
         placeholder={placeholder}
         {...field}
@@ -24,8 +27,8 @@ const FormTextInput = (props: Props & FieldHookConfig<string>) => {
   );
 };
 
-FormTextInput.defaultProps = {
+FormInputText.defaultProps = {
   classMixin: '',
 };
 
-export default FormTextInput;
+export default FormInputText;

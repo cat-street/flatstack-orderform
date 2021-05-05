@@ -5,19 +5,31 @@ import countryList from '../../utils/countryList';
 
 const phoneRegExp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
 
-const userSchema = Yup.object({
-  fullName: Yup.string().required("Please enter recipient's full name"),
-  yourFullName: Yup.string().required('Please enter your name'),
+const shippingSchema = Yup.object({
+  name: Yup.string().required("Please enter recipient's full name"),
   phone: Yup.string()
     .matches(phoneRegExp, 'Phone number is not valid')
     .required("Please enter recipient's phone"),
-  address1: Yup.string().required('Address is required'),
+  address: Yup.string().required('Address is required'),
   address2: Yup.string(),
   city: Yup.string().required('City is required'),
   country: Yup.string()
     .oneOf(countryList, 'Choose a country')
     .required('Country is required'),
-  zip: Yup.string()
+  'postal-code': Yup.string()
+    .matches(/^\w{3,8}(( |-)?\w{3,4})?$/, 'Not a valid Zip code')
+    .required('Zip code is required'),
+});
+
+const billingSchema = Yup.object({
+  name: Yup.string().required('Please enter your name'),
+  address: Yup.string().required('Address is required'),
+  address2: Yup.string(),
+  city: Yup.string().required('City is required'),
+  country: Yup.string()
+    .oneOf(countryList, 'Choose a country')
+    .required('Country is required'),
+  'postal-code': Yup.string()
     .matches(/^\w{3,8}(( |-)?\w{3,4})?$/, 'Not a valid Zip code')
     .required('Zip code is required'),
   email: Yup.string()
@@ -37,4 +49,4 @@ const cardSchema = Yup.object({
     .required('CVV is required'),
 });
 
-export { userSchema, cardSchema };
+export { shippingSchema, billingSchema, cardSchema };

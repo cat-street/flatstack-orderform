@@ -7,14 +7,14 @@ import {
 } from 'react';
 import { FieldHookConfig, useField } from 'formik';
 
-import styles from './Form.module.scss';
+import styles from './FormInput.module.scss';
 
 type Props = {
   classMixin?: string;
   list: string[];
 };
 
-const FormSelect = (props: Props & FieldHookConfig<string>) => {
+const FormInputSelect = (props: Props & FieldHookConfig<string>) => {
   const { list, placeholder, classMixin } = props;
   const [field, meta, helpers] = useField(props);
   const { onChange, onBlur, ...fieldProps } = field;
@@ -65,7 +65,9 @@ const FormSelect = (props: Props & FieldHookConfig<string>) => {
         <div className={styles.input__error}>{meta.error}</div>
       ) : null}
       <input
-        className={`${styles.input__field} ${classMixin && styles[classMixin]}`}
+        className={`${styles.input__field} ${
+          classMixin && styles[classMixin]
+        } ${meta.error ? styles.input__field_error : null}`}
         type="text"
         placeholder={placeholder}
         onFocus={showList}
@@ -93,8 +95,8 @@ const FormSelect = (props: Props & FieldHookConfig<string>) => {
   );
 };
 
-FormSelect.defaultProps = {
+FormInputSelect.defaultProps = {
   classMixin: '',
 };
 
-export default FormSelect;
+export default FormInputSelect;
