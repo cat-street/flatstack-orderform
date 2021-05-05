@@ -77,6 +77,8 @@ const ShippingForm: FC = () => (
           <FormTextInput name="zip" type="text" placeholder="Zip" />
         </div>
       </div>
+
+      <button type="submit">Continue</button>
     </Form>
   </Formik>
 );
