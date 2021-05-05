@@ -1,23 +1,20 @@
 import { FC } from 'react';
 import { Form, Formik } from 'formik';
 
-import { shippingSchema } from './validationSchema';
 import countryList from '../../utils/countryList';
-import styles from './Form.module.scss';
 import FormInputText from './FormInputText';
 import FormInputSelect from './FormInputSelect';
 
-type Values = {
-  name: string;
-  phone: string;
-  address: string;
-  address2: string;
-  city: string;
-  country: string;
-  'postal-code': string;
+import { shippingSchema } from './validationSchema';
+import { ShippingValues } from '../../types/forms';
+import styles from './Form.module.scss';
+
+type Props = {
+  setStep: (n: number) => void;
+  setData: (data: { shippingData: ShippingValues }) => void;
 };
 
-const ShippingForm: FC = () => (
+const ShippingForm: FC<Props> = ({ setStep, setData }: Props) => (
   <Formik
     initialValues={{
       name: '',
@@ -29,8 +26,10 @@ const ShippingForm: FC = () => (
       'postal-code': '',
     }}
     validationSchema={shippingSchema}
-    onSubmit={(values: Values) => {
+    onSubmit={(values: ShippingValues) => {
       console.log(values);
+      setStep(2);
+      setData({ shippingData: values });
     }}
   >
     <Form>
