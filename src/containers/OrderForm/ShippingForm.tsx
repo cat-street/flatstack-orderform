@@ -68,16 +68,12 @@ const ShippingForm: FC = () => (
 
       <div className={styles.form__group}>
         <div className={styles.form__columns}>
-          <FormSelect name="country">
-            <option value="" selected disabled hidden>
-              Country
-            </option>
-            {countryList.map((el) => (
-              <option value={el} key={el}>
-                {el}
-              </option>
-            ))}
-          </FormSelect>
+          <FormSelect
+            name="country"
+            list={countryList}
+            placeholder="Country"
+            classMixin={styles.input__field_select}
+          />
           <FormTextInput name="zip" type="text" placeholder="Zip" />
         </div>
       </div>

@@ -14,7 +14,9 @@ const userSchema = Yup.object({
   address1: Yup.string().required('Address is required'),
   address2: Yup.string(),
   city: Yup.string().required('City is required'),
-  country: Yup.string().oneOf(countryList).required('Country is required'),
+  country: Yup.string()
+    .oneOf(countryList, 'Choose a country')
+    .required('Country is required'),
   zip: Yup.string()
     .matches(/^\w{3,8}(( |-)?\w{3,4})?$/, 'Not a valid Zip code')
     .required('Zip code is required'),
@@ -26,7 +28,8 @@ const userSchema = Yup.object({
 const cardSchema = Yup.object({
   cardName: Yup.string().required('Please enter the name from the card'),
   card: Yup.string()
-    .test('test-card', 'Card number is invalid', (value) => luhn(value as string))
+    .test('test-card', 'Card number is invalid',
+      (value) => luhn(value as string))
     .required('Card number is required'),
   cardDate: Yup.string().required('Card expire date is required'),
   cvv: Yup.string()
