@@ -26,6 +26,8 @@ const initialUserState = {
     country: '',
     'postal-code': '',
   },
+  shippingValid: false,
+  billingValid: false,
 };
 
 const FormContainer: FC = () => {
@@ -55,7 +57,7 @@ const FormContainer: FC = () => {
 
   return (
     <FormLayout>
-      <StepsNav />
+      <StepsNav step={formStep} setStep={setStep} data={userData} />
       {form}
     </FormLayout>
   );

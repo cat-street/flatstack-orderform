@@ -10,7 +10,10 @@ import OrderForm from '../../components/Form/OrderForm';
 
 type Props = {
   setStep: (n: number) => void;
-  setData: (data: { shippingData: ShippingValues }) => void;
+  setData: (data: {
+    shippingData: ShippingValues;
+    shippingValid: boolean;
+  }) => void;
 };
 
 const ShippingForm: FC<Props> = ({ setStep, setData }: Props) => (
@@ -27,7 +30,7 @@ const ShippingForm: FC<Props> = ({ setStep, setData }: Props) => (
     validationSchema={shippingSchema}
     onSubmit={(values: ShippingValues) => {
       setStep(2);
-      setData({ shippingData: values });
+      setData({ shippingData: values, shippingValid: true });
     }}
   >
     <OrderForm title="Shipping Info">

@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+.steps-nav {
+  &__link {
+    @extend %link-button;
+
+    font-size: 12px;
+    color: $dim-lighter-color;
+
+    &_normal {
+      @extend %hover;
+    }
+
+    &_active {
+      color: $accent-color;
+    }
+
+    &_disabled {
+      cursor: default;
+    }
+  }
+}

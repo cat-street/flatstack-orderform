@@ -10,7 +10,10 @@ import BuyerData from '../../components/Form/BuyerData';
 
 type Props = {
   setStep: (n: number) => void;
-  setData: (data: { billingData: BillingValues }) => void;
+  setData: (data: {
+    billingData: BillingValues;
+    billingValid: boolean;
+  }) => void;
 };
 
 const BillingForm: FC<Props> = ({ setStep, setData }: Props) => (
@@ -27,7 +30,7 @@ const BillingForm: FC<Props> = ({ setStep, setData }: Props) => (
     validationSchema={billingSchema}
     onSubmit={(values: BillingValues) => {
       setStep(2);
-      setData({ billingData: values });
+      setData({ billingData: values, billingValid: true });
     }}
   >
     <OrderForm title="Billing Information">
