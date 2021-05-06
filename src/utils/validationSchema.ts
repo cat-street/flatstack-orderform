@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import luhn from 'fast-luhn';
 
-import countryList from '../../utils/countryList';
+import countryList from './countryList';
 
 const phoneRegExp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
 

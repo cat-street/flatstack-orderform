@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 
 import StepsNav from '../../components/StepsNav/StepsNav';
-import ShippingForm from '../OrderForm/ShippingForm';
+import ShippingForm from '../ShippingForm/ShippingForm';
+import FormLayout from '../../components/FormLayout/FormLayout';
 
 import { BillingValues, ShippingValues } from '../../types/forms';
-import styles from './OrderFormContainer.module.scss';
 
 const initialUserState = {
   shippingData: {
@@ -27,7 +27,7 @@ const initialUserState = {
   },
 };
 
-const OrderFormContainer: FC = () => {
+const FormContainer: FC = () => {
   const [formStep, setFormStep] = useState(1);
   const [userData, setUserData] = useState(initialUserState);
 
@@ -43,11 +43,11 @@ const OrderFormContainer: FC = () => {
   };
 
   return (
-    <div className={styles['form-container']}>
+    <FormLayout>
       <StepsNav />
       <ShippingForm setStep={setStep} setData={setData} />
-    </div>
+    </FormLayout>
   );
 };
 
-export default OrderFormContainer;
+export default FormContainer;
