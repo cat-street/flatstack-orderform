@@ -32,7 +32,7 @@ const ShippingForm: FC<Props> = ({ setStep, setData }: Props) => (
   >
     <OrderForm title="Shipping Info">
       <RecipientData />
-      <AddressData />
+      <AddressData title="Address" />
     </OrderForm>
   </Formik>
 );

@@ -6,9 +6,13 @@ import FormInputSelect from '../FormInput/FormInputSelect';
 import countryList from '../../utils/countryList';
 import styles from './OrderForm.module.scss';
 
-const AddressData: FC = () => (
+type Props = {
+  title: string;
+};
+
+const AddressData: FC<Props> = ({ title }: Props) => (
   <>
-    <h3 className={styles.form__subtitle}>Address</h3>
+    <h3 className={styles.form__subtitle}>{title}</h3>
     <div className={styles.form__group}>
       <FormInputText name="address" type="text" placeholder="Street Address" />
       <FormInputText

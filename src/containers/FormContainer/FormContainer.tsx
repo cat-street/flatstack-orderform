@@ -5,6 +5,7 @@ import ShippingForm from '../ShippingForm/ShippingForm';
 import FormLayout from '../../components/FormLayout/FormLayout';
 
 import { BillingValues, ShippingValues } from '../../types/forms';
+import BillingForm from '../BillingForm/BillingForm';
 
 const initialUserState = {
   shippingData: {
@@ -38,14 +39,24 @@ const FormContainer: FC = () => {
   const setData = (
     data: { shippingData: ShippingValues } | { billingData: BillingValues },
   ) => {
-    console.log(data);
     setUserData((prevData) => ({ ...prevData, ...data }));
   };
+
+  let form;
+  switch (formStep) {
+    case 2: {
+      form = <BillingForm setStep={setStep} setData={setData} />;
+      break;
+    }
+    default: {
+      form = <ShippingForm setStep={setStep} setData={setData} />;
+    }
+  }
 
   return (
     <FormLayout>
       <StepsNav />
-      <ShippingForm setStep={setStep} setData={setData} />
+      {form}
     </FormLayout>
   );
 };

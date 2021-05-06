@@ -2,6 +2,9 @@
 
 .summary {
   padding: 24px 10px 15px;
+  display: flex;
+  flex-direction: column;
+
   background-color: rgba($color: $page-bg, $alpha: 0.5);
 
   &__header {
