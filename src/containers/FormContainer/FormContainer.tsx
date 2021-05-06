@@ -48,21 +48,13 @@ const FormContainer: FC = () => {
   switch (formStep) {
     case 2: {
       form = (
-        <BillingForm
-          data={userData.billingData}
-          setStep={setStep}
-          setData={setData}
-        />
+        <BillingForm data={userData} setStep={setStep} setData={setData} />
       );
       break;
     }
     default: {
       form = (
-        <ShippingForm
-          data={userData.shippingData}
-          setStep={setStep}
-          setData={setData}
-        />
+        <ShippingForm data={userData} setStep={setStep} setData={setData} />
       );
     }
   }

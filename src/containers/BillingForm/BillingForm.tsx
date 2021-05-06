@@ -2,14 +2,14 @@ import { FC } from 'react';
 import { Formik } from 'formik';
 
 import { billingSchema } from '../../utils/validationSchema';
-import { BillingValues } from '../../types/forms';
+import { BillingValues, UserState } from '../../types/forms';
 
 import AddressData from '../../components/Form/AddressData';
 import OrderForm from '../../components/Form/OrderForm';
 import BuyerData from '../../components/Form/BuyerData';
 
 type Props = {
-  data: BillingValues;
+  data: UserState;
   setStep: (n: number) => void;
   setData: (data: {
     billingData: BillingValues;
@@ -19,7 +19,7 @@ type Props = {
 
 const BillingForm: FC<Props> = ({ data, setStep, setData }: Props) => (
   <Formik
-    initialValues={data}
+    initialValues={data.billingData}
     validationSchema={billingSchema}
     onSubmit={(values: BillingValues) => {
       setStep(2);

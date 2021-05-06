@@ -2,14 +2,14 @@ import { FC } from 'react';
 import { Formik } from 'formik';
 
 import { shippingSchema } from '../../utils/validationSchema';
-import { ShippingValues } from '../../types/forms';
+import { ShippingValues, UserState } from '../../types/forms';
 
 import AddressData from '../../components/Form/AddressData';
 import RecipientData from '../../components/Form/RecipientData';
 import OrderForm from '../../components/Form/OrderForm';
 
 type Props = {
-  data: ShippingValues;
+  data: UserState;
   setStep: (n: number) => void;
   setData: (data: {
     shippingData: ShippingValues;
@@ -19,7 +19,7 @@ type Props = {
 
 const ShippingForm: FC<Props> = ({ data, setStep, setData }: Props) => (
   <Formik
-    initialValues={data}
+    initialValues={data.shippingData}
     validationSchema={shippingSchema}
     onSubmit={(values: ShippingValues) => {
       setStep(2);
