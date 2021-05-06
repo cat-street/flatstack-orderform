@@ -9,6 +9,7 @@ import RecipientData from '../../components/Form/RecipientData';
 import OrderForm from '../../components/Form/OrderForm';
 
 type Props = {
+  data: ShippingValues;
   setStep: (n: number) => void;
   setData: (data: {
     shippingData: ShippingValues;
@@ -16,17 +17,9 @@ type Props = {
   }) => void;
 };
 
-const ShippingForm: FC<Props> = ({ setStep, setData }: Props) => (
+const ShippingForm: FC<Props> = ({ data, setStep, setData }: Props) => (
   <Formik
-    initialValues={{
-      name: '',
-      phone: '',
-      address: '',
-      address2: '',
-      city: '',
-      country: '',
-      'postal-code': '',
-    }}
+    initialValues={data}
     validationSchema={shippingSchema}
     onSubmit={(values: ShippingValues) => {
       setStep(2);

@@ -9,6 +9,7 @@ import OrderForm from '../../components/Form/OrderForm';
 import BuyerData from '../../components/Form/BuyerData';
 
 type Props = {
+  data: BillingValues;
   setStep: (n: number) => void;
   setData: (data: {
     billingData: BillingValues;
@@ -16,17 +17,9 @@ type Props = {
   }) => void;
 };
 
-const BillingForm: FC<Props> = ({ setStep, setData }: Props) => (
+const BillingForm: FC<Props> = ({ data, setStep, setData }: Props) => (
   <Formik
-    initialValues={{
-      name: '',
-      email: '',
-      address: '',
-      address2: '',
-      city: '',
-      country: '',
-      'postal-code': '',
-    }}
+    initialValues={data}
     validationSchema={billingSchema}
     onSubmit={(values: BillingValues) => {
       setStep(2);
