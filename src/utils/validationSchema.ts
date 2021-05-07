@@ -41,7 +41,9 @@ const paymentSchema = Yup.object({
   card: Yup.string()
     .matches(/^[0-9]{16,20}$/, 'Card number is invalid')
     .required('Card number is required'),
-  cardDate: Yup.string().required('Card expire date is required'),
+  cardDate: Yup.string()
+    .matches(/^[0-1][1-9]2[1-9]$/, 'Card number is invalid')
+    .required('Card expire date is required'),
   cvv: Yup.string()
     .matches(/^[0-9]{3}$/, 'Not a valid CVV')
     .required('CVV is required'),

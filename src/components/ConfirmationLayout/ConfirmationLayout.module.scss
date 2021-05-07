@@ -1,0 +1,70 @@
+@import '../../styles/variables.scss';
+
+.confirmation {
+  color: $text-lighter-color;
+
+  position: relative;
+  z-index: 1;
+
+  &__header {
+    padding: 60px 0 30px;
+    margin: 0;
+
+    font-size: 26px;
+    font-weight: 300;
+    color: $accent-color;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &__number {
+    padding-bottom: 11px;
+
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__text {
+    line-height: 18px;
+    padding-bottom: 30px;
+  }
+
+  &__email {
+    @extend %hover;
+
+    color: $accent-color;
+    text-decoration: none;
+  }
+
+  &__date {
+    display: block;
+
+    font-weight: 700;
+  }
+
+  &__small {
+    font-size: 13px;
+  }
+
+  &__print {
+    @extend %link-button;
+    @extend %hover;
+
+    color: $accent-color;
+    text-decoration: underline;
+  }
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  border-radius: 5px;
+  opacity: .5;
+  background-color: #fff;
+}

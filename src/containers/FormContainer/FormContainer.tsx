@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import StepsNav from '../../components/StepsNav/StepsNav';
 import ShippingForm from '../ShippingForm/ShippingForm';
 import FormLayout from '../../components/FormLayout/FormLayout';
+import Confirmation from '../Confirmation/Confirmation';
 
 import { BillingValues, ShippingValues } from '../../types/forms';
 import BillingForm from '../BillingForm/BillingForm';
@@ -60,6 +61,10 @@ const FormContainer: FC = () => {
       form = <PaymentForm setStep={setStep} setData={setData} />;
       break;
     }
+    case 4: {
+      form = <Confirmation data={userData} />;
+      break;
+    }
     default: {
       form = (
         <ShippingForm data={userData} setStep={setStep} setData={setData} />
@@ -69,7 +74,9 @@ const FormContainer: FC = () => {
 
   return (
     <FormLayout>
-      <StepsNav step={formStep} setStep={setStep} data={userData} />
+      {formStep !== 4 && (
+        <StepsNav step={formStep} setStep={setStep} data={userData} />
+      )}
       {form}
     </FormLayout>
   );

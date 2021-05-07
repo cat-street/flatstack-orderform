@@ -6,11 +6,12 @@ import styles from './OrderForm.module.scss';
 
 type Props = {
   submitText: string;
+  autoComplete?: string;
   children: ReactNode;
 };
 
-const OrderForm: FC<Props> = ({ submitText, children }: Props) => (
-  <Form>
+const OrderForm: FC<Props> = ({ submitText, autoComplete, children }: Props) => (
+  <Form autoComplete={autoComplete}>
     {children}
 
     <button type="submit" className={styles.form__submit}>
@@ -18,5 +19,9 @@ const OrderForm: FC<Props> = ({ submitText, children }: Props) => (
     </button>
   </Form>
 );
+
+OrderForm.defaultProps = {
+  autoComplete: 'on',
+};
 
 export default OrderForm;

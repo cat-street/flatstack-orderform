@@ -29,7 +29,7 @@ const PaymentForm: FC<Props> = ({ setStep, setData }: Props) => (
       setStep(4);
     }}
   >
-    <OrderForm submitText="Pay Securely">
+    <OrderForm submitText="Pay Securely" autoComplete="off">
       <PaymentHeader />
       <PaymentData />
     </OrderForm>
