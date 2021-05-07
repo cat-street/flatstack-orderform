@@ -15,7 +15,7 @@ const shippingSchema = Yup.object({
   country: Yup.string()
     .oneOf(countryList, 'Choose a country')
     .required('Country is required'),
-  'postal-code': Yup.string()
+  postcode: Yup.string()
     .matches(/^\w{3,8}(( |-)?\w{3,4})?$/, 'Not a valid Zip code')
     .required('Zip code is required'),
 });
@@ -28,7 +28,7 @@ const billingSchema = Yup.object({
   country: Yup.string()
     .oneOf(countryList, 'Choose a country')
     .required('Country is required'),
-  'postal-code': Yup.string()
+  postcode: Yup.string()
     .matches(/^\w{3,8}(( |-)?\w{3,4})?$/, 'Not a valid Zip code')
     .required('Zip code is required'),
   email: Yup.string()
@@ -42,7 +42,7 @@ const paymentSchema = Yup.object({
     .matches(/^[0-9]{16,20}$/, 'Card number is invalid')
     .required('Card number is required'),
   cardDate: Yup.string()
-    .matches(/^[0-1][1-9]2[1-9]$/, 'Card number is invalid')
+    .matches(/^[0-1][0-9]2[1-9]$/, 'Card number is invalid')
     .required('Card expire date is required'),
   cvv: Yup.string()
     .matches(/^[0-9]{3}$/, 'Not a valid CVV')

@@ -1,11 +1,15 @@
-import { FC, useState } from 'react';
+import {
+  FC, useContext, useEffect, useState,
+} from 'react';
+
+import { BillingValues, ShippingValues } from '../../types/forms';
+import GeoContext from '../../context/geoContext';
 
 import StepsNav from '../../components/StepsNav/StepsNav';
 import ShippingForm from '../ShippingForm/ShippingForm';
 import FormLayout from '../../components/FormLayout/FormLayout';
 import Confirmation from '../Confirmation/Confirmation';
 
-import { BillingValues, ShippingValues } from '../../types/forms';
 import BillingForm from '../BillingForm/BillingForm';
 import PaymentForm from '../PaymentForm/PaymentForm';
 
@@ -17,7 +21,7 @@ const initialUserState = {
     address2: '',
     city: '',
     country: '',
-    'postal-code': '',
+    postcode: '',
   },
   billingData: {
     name: '',
@@ -26,7 +30,7 @@ const initialUserState = {
     address2: '',
     city: '',
     country: '',
-    'postal-code': '',
+    postcode: '',
   },
   shippingValid: false,
   billingValid: false,
@@ -36,6 +40,7 @@ const initialUserState = {
 const FormContainer: FC = () => {
   const [formStep, setFormStep] = useState(1);
   const [userData, setUserData] = useState(initialUserState);
+  const { address } = useContext(GeoContext);
 
   const setStep = (val: number) => {
     setFormStep(val);
@@ -48,6 +53,15 @@ const FormContainer: FC = () => {
   ) => {
     setUserData((prevData) => ({ ...prevData, ...data }));
   };
+
+  useEffect(() => {
+    if (address.city && address.country && address.postcode) {
+      const shippingData = { ...userData.shippingData, ...address };
+      const billingData = { ...userData.billingData, ...address };
+      setData({ shippingData });
+      setData({ billingData });
+    }
+  }, [address]);
 
   let form;
   switch (formStep) {

@@ -4,7 +4,7 @@ interface AddressData {
   address2: string;
   city: string;
   country: string;
-  'postal-code': string;
+  postcode: string;
 }
 
 export interface ShippingValues extends AddressData {

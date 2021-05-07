@@ -1,12 +1,17 @@
 import { ReactElement, useEffect, useState } from 'react';
 
+import GeoContext from './context/geoContext';
+
 import Header from './components/Header/Header';
 import OrderLayout from './components/OrderLayout/OrderLayout';
 import getAddress from './utils/getAddress';
-import { AddressState } from './types/app';
 
 function App(): ReactElement {
-  const [address, setAddress] = useState<AddressState>();
+  const [address, setAddress] = useState({
+    city: '',
+    country: '',
+    postcode: '',
+  });
 
   const detectAddress = async () => {
     const data = await getAddress();
@@ -22,7 +27,9 @@ function App(): ReactElement {
   return (
     <>
       <Header />
-      <OrderLayout />
+      <GeoContext.Provider value={{ address, setContext: detectAddress }}>
+        <OrderLayout />
+      </GeoContext.Provider>
     </>
   );
 }

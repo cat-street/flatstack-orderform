@@ -22,6 +22,7 @@ const ShippingForm: FC<Props> = ({ data, setStep, setData }: Props) => (
   <Formik
     initialValues={data.shippingData}
     validationSchema={shippingSchema}
+    enableReinitialize
     onSubmit={(values) => {
       setData({ shippingData: values, shippingValid: true });
       setStep(2);

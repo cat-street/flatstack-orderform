@@ -11,6 +11,7 @@ async function getAddressFromCoords({
 }) {
   const response = await axios.get(
     `https://eu1.locationiq.com/v1/reverse.php?key=${TOKEN}&lat=${lat}&lon=${lon}&format=json`,
+    { headers: { 'Accept-Language': 'en' } },
   );
   return response.data;
 }

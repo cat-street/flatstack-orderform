@@ -36,7 +36,7 @@ const AddressData: FC<Props> = ({ title }: Props) => (
           placeholder="Country"
           classMixin={styles.input__field_select}
         />
-        <FormInputText name="postal-code" type="text" placeholder="Zip" />
+        <FormInputText name="postcode" type="text" placeholder="Zip" />
       </div>
     </div>
   </div>
