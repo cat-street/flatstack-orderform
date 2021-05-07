@@ -35,7 +35,7 @@ const BillingForm: FC<Props> = ({ data, setStep, setData }: Props) => {
         setData({ billingData: values, billingValid: true });
       }}
     >
-      <OrderForm>
+      <OrderForm submitText="Continue">
         <BillingHeader onFill={fillForm} />
         <BuyerData />
         <AddressData title="Billing Address" />

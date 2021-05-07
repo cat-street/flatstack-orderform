@@ -5,15 +5,16 @@ import { Form } from 'formik';
 import styles from './OrderForm.module.scss';
 
 type Props = {
+  submitText: string;
   children: ReactNode;
 };
 
-const OrderForm: FC<Props> = ({ children }: Props) => (
+const OrderForm: FC<Props> = ({ submitText, children }: Props) => (
   <Form>
     {children}
 
     <button type="submit" className={styles.form__submit}>
-      Continue
+      {submitText}
     </button>
   </Form>
 );

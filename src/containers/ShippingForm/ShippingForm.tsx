@@ -27,7 +27,7 @@ const ShippingForm: FC<Props> = ({ data, setStep, setData }: Props) => (
       setData({ shippingData: values, shippingValid: true });
     }}
   >
-    <OrderForm>
+    <OrderForm submitText="Continue">
       <ShippingHeader />
       <RecipientData />
       <AddressData title="Address" />
