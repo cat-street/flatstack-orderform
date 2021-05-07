@@ -9,7 +9,7 @@ const ConfirmationLayout: FC = () => (
       <h2 className={styles.confirmation__header}>Thank you for your order!</h2>
       <p className={styles.confirmation__number}>Order number is: 188787788</p>
       <p className={styles.confirmation__text}>
-        Your will recieve an email confirmation shortly to{' '}
+        Your will receive an email confirmation shortly to{' '}
         <a
           href="mailto:jonathan.smith@gmail.com"
           className={styles.confirmation__email}
