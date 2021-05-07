@@ -11,23 +11,25 @@ type Props = {
 };
 
 const AddressData: FC<Props> = ({ title }: Props) => (
-  <>
-    <h3 className={styles.form__subtitle}>{title}</h3>
-    <div className={styles.form__group}>
-      <FormInputText name="address" type="text" placeholder="Street Address" />
-      <FormInputText
-        name="address2"
-        type="text"
-        placeholder="Apt, Suite, Bldg, Gate Code. (optional)"
-      />
-    </div>
+  <div className={styles.form__group}>
+    <p className={styles.form__label}>{title}</p>
+    <div className={`${styles.form__rows} ${styles.form__rows_big}`}>
+      <div className={`${styles.form__rows} ${styles.form__rows_small}`}>
+        <FormInputText
+          name="address"
+          type="text"
+          placeholder="Street Address"
+        />
+        <FormInputText
+          name="address2"
+          type="text"
+          placeholder="Apt, Suite, Bldg, Gate Code. (optional)"
+        />
+      </div>
 
-    <div className={styles.form__group}>
       <FormInputText name="city" type="text" placeholder="City" />
-    </div>
 
-    <div className={styles.form__group}>
-      <div className={styles.form__columns}>
+      <div className={`${styles.form__columns} ${styles.form__columns_big}`}>
         <FormInputSelect
           name="country"
           list={countryList}
@@ -37,7 +39,7 @@ const AddressData: FC<Props> = ({ title }: Props) => (
         <FormInputText name="postal-code" type="text" placeholder="Zip" />
       </div>
     </div>
-  </>
+  </div>
 );
 
 export default AddressData;

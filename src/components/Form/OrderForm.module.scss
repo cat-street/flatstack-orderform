@@ -1,38 +1,46 @@
 @import '../../styles/variables.scss';
 
 .form {
-  &__title,
-  &__subtitle {
+  &__label {
     margin: 0;
-
-    font-weight: 300;
-    color: $accent-color;
-  }
-
-  &__title {
-    padding: 20px 0 10px;
-
-    font-size: 26px;
-  }
-
-  &__subtitle {
-    padding: 10px 0 6px;
+    padding: 0 0 6px;
 
     font-size: 16px;
+    font-weight: 300;
+    color: $accent-color;
+    white-space: nowrap;
   }
 
   &__group {
     margin-bottom: 20px;
+  }
+
+  &__rows {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+
+    &_small {
+      gap: 10px;
+    }
+
+    &_big {
+      gap: 20px;
+    }
   }
 
   &__columns {
     display: grid;
-    grid-template-columns: 180px 1fr;
     align-items: center;
-    gap: 10px;
+
+    &_small {
+      grid-template-columns: repeat(2, 95px);
+      gap: 30px;
+    }
+
+    &_big {
+      grid-template-columns: 180px 1fr;
+      gap: 10px;
+    }
   }
 
   &__phone-info {

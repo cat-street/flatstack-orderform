@@ -20,7 +20,7 @@
       box-shadow 200ms ease-out;
 
     &::placeholder {
-      color: #6b6b6b;
+      color: $placeholder-color;
     }
 
     &:focus {

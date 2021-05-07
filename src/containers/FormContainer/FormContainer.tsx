@@ -6,6 +6,7 @@ import FormLayout from '../../components/FormLayout/FormLayout';
 
 import { BillingValues, ShippingValues } from '../../types/forms';
 import BillingForm from '../BillingForm/BillingForm';
+import PaymentForm from '../PaymentForm/PaymentForm';
 
 const initialUserState = {
   shippingData: {
@@ -28,6 +29,7 @@ const initialUserState = {
   },
   shippingValid: false,
   billingValid: false,
+  maskedCardNumber: '',
 };
 
 const FormContainer: FC = () => {
@@ -39,7 +41,9 @@ const FormContainer: FC = () => {
   };
 
   const setData = (
-    data: { shippingData: ShippingValues } | { billingData: BillingValues },
+    data: { shippingData: ShippingValues }
+    | { billingData: BillingValues }
+    | { maskedCardNumber: string },
   ) => {
     setUserData((prevData) => ({ ...prevData, ...data }));
   };
@@ -50,6 +54,10 @@ const FormContainer: FC = () => {
       form = (
         <BillingForm data={userData} setStep={setStep} setData={setData} />
       );
+      break;
+    }
+    case 3: {
+      form = <PaymentForm setStep={setStep} setData={setData} />;
       break;
     }
     default: {

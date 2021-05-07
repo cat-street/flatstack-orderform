@@ -30,9 +30,9 @@ const BillingForm: FC<Props> = ({ data, setStep, setData }: Props) => {
       initialValues={data.billingData}
       validationSchema={billingSchema}
       enableReinitialize
-      onSubmit={(values: BillingValues) => {
-        setStep(3);
+      onSubmit={(values) => {
         setData({ billingData: values, billingValid: true });
+        setStep(3);
       }}
     >
       <OrderForm submitText="Continue">

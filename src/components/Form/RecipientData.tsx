@@ -5,11 +5,11 @@ import FormInputText from '../FormInput/FormInputText';
 import styles from './OrderForm.module.scss';
 
 const RecipientData: FC = () => (
-  <>
-    <h3 className={styles.form__subtitle}>Recipient</h3>
-    <div className={styles.form__group}>
+  <div className={styles.form__group}>
+    <p className={styles.form__label}>Recipient</p>
+    <div className={`${styles.form__rows} ${styles.form__rows_small}`}>
       <FormInputText name="name" type="text" placeholder="Full Name" />
-      <div className={styles.form__columns}>
+      <div className={`${styles.form__columns} ${styles.form__columns_big}`}>
         <FormInputText name="phone" type="text" placeholder="Daytime Phone" />
         <p className={styles['form__phone-info']}>
           For delivery
@@ -18,7 +18,7 @@ const RecipientData: FC = () => (
         </p>
       </div>
     </div>
-  </>
+  </div>
 );
 
 export default RecipientData;

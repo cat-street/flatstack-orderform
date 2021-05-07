@@ -1,11 +1,13 @@
 @import '../../styles/variables.scss';
 
 .form-header {
-  padding: 20px 0 10px;
+  padding: 20px 0;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  &_columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &__title {
     margin: 0;
@@ -22,5 +24,21 @@
     font-size: 12px;
     color: $accent-color;
     text-decoration: underline;
+  }
+
+  &__secure-info {
+    height: 26px;
+    margin: 15px 0 0;
+    padding-left: 24px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+    font-weight: 300;
+    color: $placeholder-color;
+
+    background: url('../../assets/secure_icon.svg') left center /
+      19px 26px no-repeat;
   }
 }

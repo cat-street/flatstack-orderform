@@ -22,9 +22,9 @@ const ShippingForm: FC<Props> = ({ data, setStep, setData }: Props) => (
   <Formik
     initialValues={data.shippingData}
     validationSchema={shippingSchema}
-    onSubmit={(values: ShippingValues) => {
-      setStep(2);
+    onSubmit={(values) => {
       setData({ shippingData: values, shippingValid: true });
+      setStep(2);
     }}
   >
     <OrderForm submitText="Continue">

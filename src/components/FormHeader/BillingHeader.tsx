@@ -7,7 +7,7 @@ type Props = {
 };
 
 const BillingHeader: FC<Props> = ({ onFill }: Props) => (
-  <div className={styles['form-header']}>
+  <div className={`${styles['form-header']} ${styles['form-header_columns']}`}>
     <h2 className={styles['form-header__title']}>Billing Information</h2>
     <button
       type="button"

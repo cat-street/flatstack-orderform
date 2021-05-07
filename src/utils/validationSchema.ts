@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import luhn from 'fast-luhn';
 
 import countryList from './countryList';
 
@@ -37,11 +36,10 @@ const billingSchema = Yup.object({
     .required('Please enter your email'),
 });
 
-const cardSchema = Yup.object({
-  cardName: Yup.string().required('Please enter the name from the card'),
+const paymentSchema = Yup.object({
+  name: Yup.string().required('Please enter the name from the card'),
   card: Yup.string()
-    .test('test-card', 'Card number is invalid',
-      (value) => luhn(value as string))
+    .matches(/^[0-9]{16,20}$/, 'Card number is invalid')
     .required('Card number is required'),
   cardDate: Yup.string().required('Card expire date is required'),
   cvv: Yup.string()
@@ -49,4 +47,4 @@ const cardSchema = Yup.object({
     .required('CVV is required'),
 });
 
-export { shippingSchema, billingSchema, cardSchema };
+export { shippingSchema, billingSchema, paymentSchema };
