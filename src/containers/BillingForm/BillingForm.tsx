@@ -31,12 +31,12 @@ const BillingForm: FC<Props> = ({ data, setStep, setData }: Props) => {
       validationSchema={billingSchema}
       enableReinitialize
       onSubmit={(values: BillingValues) => {
-        setStep(2);
+        setStep(3);
         setData({ billingData: values, billingValid: true });
       }}
     >
       <OrderForm>
-        <BillingHeader />
+        <BillingHeader onFill={fillForm} />
         <BuyerData />
         <AddressData title="Billing Address" />
       </OrderForm>
