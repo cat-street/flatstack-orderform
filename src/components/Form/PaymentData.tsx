@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import FormInputText from '../FormInput/FormInputText';
+import FormInputCard from '../FormInput/FormInputCard';
 
 import styles from './OrderForm.module.scss';
 
@@ -17,9 +18,8 @@ const PaymentData: FC = () => (
 
     <div className={styles.form__group}>
       <p className={styles.form__label}>Card Number</p>
-      <FormInputText
+      <FormInputCard
         name="card"
-        type="text"
         placeholder="XXXX XXXX XXXX XXXX XXXX"
       />
     </div>
