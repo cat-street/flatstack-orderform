@@ -67,7 +67,7 @@ const FormInputSelect = (props: Props & FieldHookConfig<string>) => {
       <input
         className={`${styles.input__field} ${
           classMixin && styles[classMixin]
-        } ${meta.error ? styles.input__field_error : null}`}
+        } ${meta.error ? styles.input__field_error : ''}`}
         type="text"
         placeholder={placeholder}
         onFocus={showList}

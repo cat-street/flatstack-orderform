@@ -27,14 +27,19 @@ const AddressData: FC<Props> = ({ title }: Props) => (
         />
       </div>
 
-      <FormInputText name="city" type="text" placeholder="City" />
+      <FormInputText
+        name="city"
+        type="text"
+        placeholder="City"
+        classMixin="input__field_country"
+      />
 
       <div className={`${styles.form__columns} ${styles.form__columns_big}`}>
         <FormInputSelect
           name="country"
           list={countryList}
           placeholder="Country"
-          classMixin={styles.input__field_select}
+          classMixin="input__field_select"
         />
         <FormInputText name="postcode" type="text" placeholder="Zip" />
       </div>
