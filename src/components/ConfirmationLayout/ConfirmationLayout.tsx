@@ -22,7 +22,11 @@ const ConfirmationLayout: FC = () => (
         <span className={styles.confirmation__date}>Friday 1st April 2021</span>
       </p>
       <p className={styles.confirmation__small}>
-        <button type="button" className={styles.confirmation__print}>
+        <button
+          type="button"
+          className={styles.confirmation__print}
+          onClick={() => window.print()}
+        >
           Print Recipe
         </button>
       </p>

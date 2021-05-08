@@ -76,7 +76,7 @@ const FormContainer: FC = () => {
       break;
     }
     case 4: {
-      form = <Confirmation data={userData} />;
+      form = <Confirmation />;
       break;
     }
     default: {

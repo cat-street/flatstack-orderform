@@ -22,9 +22,7 @@ const PaymentForm: FC<Props> = ({ setStep, setData }: Props) => (
     }}
     validationSchema={paymentSchema}
     onSubmit={(values) => {
-      const maskedCardNumber = `${values.card.slice(0, 2)}
-      xxxxxx
-      ${values.card.slice(-2)}`;
+      const maskedCardNumber = `${values.card.slice(0, 2)}xxxxxx${values.card.slice(-2)}`;
       setData({ maskedCardNumber });
       setStep(4);
     }}
