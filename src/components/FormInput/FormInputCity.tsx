@@ -7,7 +7,7 @@ type Props = {
   onDetect: () => void;
 };
 
-const FormInputCountry = (props: Props & FieldHookConfig<string>) => {
+const FormInputCity = (props: Props & FieldHookConfig<string>) => {
   const [field, meta] = useField(props);
   const { type, placeholder, onDetect } = props;
 
@@ -27,7 +27,7 @@ const FormInputCountry = (props: Props & FieldHookConfig<string>) => {
 
       <input
         className={`${styles.input__field} ${styles.input__field_country}
-          ${meta.error ? styles.input__field_error : ''}`}
+          ${meta.touched && meta.error ? styles.input__field_error : ''}`}
         type={type}
         placeholder={placeholder}
         {...field}
@@ -36,4 +36,4 @@ const FormInputCountry = (props: Props & FieldHookConfig<string>) => {
   );
 };
 
-export default FormInputCountry;
+export default FormInputCity;

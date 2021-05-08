@@ -67,7 +67,7 @@ const FormInputSelect = (props: Props & FieldHookConfig<string>) => {
       <input
         className={`${styles.input__field} ${
           styles.input__field_select
-        } ${meta.error ? styles.input__field_error : ''}`}
+        } ${meta.touched && meta.error ? styles.input__field_error : ''}`}
         type="text"
         placeholder={placeholder}
         onFocus={showList}

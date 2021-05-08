@@ -13,7 +13,7 @@ const FormInputText = (props: FieldHookConfig<string>) => {
       ) : null}
       <input
         className={`${styles.input__field} ${
-          meta.error ? styles.input__field_error : ''
+          meta.touched && meta.error ? styles.input__field_error : ''
         }`}
         type={type}
         placeholder={placeholder}
