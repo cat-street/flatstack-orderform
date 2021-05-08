@@ -68,3 +68,9 @@
   opacity: .5;
   background-color: #fff;
 }
+
+@media print {
+  .overlay {
+    display: none;
+  }
+}
