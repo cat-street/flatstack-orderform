@@ -30,8 +30,6 @@
 
     &_country {
       padding-right: 40px;
-      background: url('../../assets/target_icon.svg') calc(100% - 10px) center /
-        20px 20px no-repeat;
     }
 
     &_select {
@@ -55,6 +53,17 @@
     &_error {
       background-color: rgba(248, 231, 28, 0.07);
     }
+  }
+
+  &__detect {
+    @extend %link-button;
+    height: 100%;
+
+    position: absolute;
+    right: 12px;
+
+    display: flex;
+    align-items: center;
   }
 
   &__list {

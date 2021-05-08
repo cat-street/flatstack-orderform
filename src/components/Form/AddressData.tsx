@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import FormInputText from '../FormInput/FormInputText';
 import FormInputSelect from '../FormInput/FormInputSelect';
+import CountryInput from '../../containers/CountryInput/CountryInput';
 
 import countryList from '../../utils/countryList';
 import styles from './OrderForm.module.scss';
@@ -27,19 +28,13 @@ const AddressData: FC<Props> = ({ title }: Props) => (
         />
       </div>
 
-      <FormInputText
-        name="city"
-        type="text"
-        placeholder="City"
-        classMixin="input__field_country"
-      />
+      <CountryInput name="city" type="text" placeholder="City" />
 
       <div className={`${styles.form__columns} ${styles.form__columns_big}`}>
         <FormInputSelect
           name="country"
           list={countryList}
           placeholder="Country"
-          classMixin="input__field_select"
         />
         <FormInputText name="postcode" type="text" placeholder="Zip" />
       </div>
