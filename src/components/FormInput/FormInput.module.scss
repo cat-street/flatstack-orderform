@@ -50,6 +50,13 @@
       }
     }
 
+    &_visa {
+      padding-right: 70px;
+
+      background: url('../../assets/visa_icon.svg') calc(100% - 12px) center /
+        49px 15px no-repeat;
+    }
+
     &_error {
       background-color: rgba(248, 231, 28, 0.07);
     }
