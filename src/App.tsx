@@ -1,6 +1,7 @@
 import { ReactElement, useEffect, useState } from 'react';
 
 import GeoContext from './context/geoContext';
+import { mockCart, CartContext } from './context/cartContext';
 
 import Header from './components/Header/Header';
 import OrderLayout from './components/OrderLayout/OrderLayout';
@@ -28,7 +29,9 @@ function App(): ReactElement {
     <>
       <Header />
       <GeoContext.Provider value={{ address, setContext: detectAddress }}>
-        <OrderLayout />
+        <CartContext.Provider value={mockCart}>
+          <OrderLayout />
+        </CartContext.Provider>
       </GeoContext.Provider>
     </>
   );
