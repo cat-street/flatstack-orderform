@@ -1,100 +1,69 @@
-import {
-  useRef,
-  useState,
-  SyntheticEvent,
-  ChangeEvent,
-  useEffect,
-} from 'react';
-import { FieldHookConfig, useField } from 'formik';
+import { ChangeEvent, FC, SyntheticEvent } from 'react';
+import { FieldInputProps, FieldMetaProps } from 'formik';
 
 import styles from './FormInput.module.scss';
 
 type Props = {
+  field: Partial<FieldInputProps<string>>;
+  meta: FieldMetaProps<string>;
+  placeholder: string;
   list: string[];
+  listVisible: boolean;
+  onShow: () => void;
+  onBlur: (evt: SyntheticEvent) => void;
+  onChange: (evt: ChangeEvent<HTMLInputElement>) => void;
+  setItem: (evt: SyntheticEvent) => void;
 };
 
-const FormSelect = (props: Props & FieldHookConfig<string>) => {
-  const [field, meta, helpers] = useField(props);
-  const [currentList, setList] = useState<Array<string>>([]);
+const FormSelect: FC<Props> = ({
+  field,
+  meta,
+  placeholder,
+  list,
+  listVisible,
+  onShow,
+  onBlur,
+  onChange,
+  setItem,
+}: Props) => (
+  <div className={styles.input}>
+    {meta.touched && meta.error ? (
+      <div className={styles.input__error}>{meta.error}</div>
+    ) : null}
 
-  const { list, placeholder } = props;
-  const { onChange, onBlur, ...fieldProps } = field;
-  const { setValue } = helpers;
+    <input
+      className={`${styles.input__field} ${
+        listVisible
+          ? styles.input__field_select_active
+          : styles.input__field_select_inactive
+      } ${meta.touched && meta.error ? styles.input__field_error : ''}`}
+      type="text"
+      placeholder={placeholder}
+      onFocus={onShow}
+      onBlur={onBlur}
+      onChange={onChange}
+      {...field}
+    />
 
-  const listEl = useRef<HTMLUListElement>(null);
-  const inputEl = useRef<HTMLInputElement>(null);
-
-  const showList = () => {
-    listEl.current?.classList.add(styles.input__list_visible);
-    inputEl.current?.classList.remove(styles.input__field_select);
-    inputEl.current?.classList.add(styles['input__field_select-on']);
-  };
-
-  const hideList = () => {
-    listEl.current?.classList.remove(styles.input__list_visible);
-    inputEl.current?.classList.remove(styles['input__field_select-on']);
-    inputEl.current?.classList.add(styles.input__field_select);
-  };
-
-  const setItem = (evt: SyntheticEvent) => {
-    const target = evt.target as HTMLLIElement;
-    setValue(target.dataset.value!);
-    hideList();
-  };
-
-  const handleBlur = (evt: SyntheticEvent) => {
-    hideList();
-    onBlur(evt);
-  };
-
-  const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    setList(
-      list.filter(
-        (el) => el.toLowerCase().startsWith(evt.target.value.toLowerCase()),
-      ),
-    );
-    onChange(evt);
-  };
-
-  useEffect(() => {
-    setList(list);
-  }, [list]);
-
-  return (
-    <div className={styles.input}>
-      {meta.touched && meta.error ? (
-        <div className={styles.input__error}>{meta.error}</div>
-      ) : null}
-
-      <input
-        className={`${styles.input__field} ${
-          styles.input__field_select
-        } ${meta.touched && meta.error ? styles.input__field_error : ''}`}
-        type="text"
-        placeholder={placeholder}
-        onFocus={showList}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        ref={inputEl}
-        {...fieldProps}
-      />
-
-      <ul className={styles.input__list} ref={listEl}>
-        {currentList.map((el) => (
-          <li key={el}>
-            <button
-              type="button"
-              className={styles.input__item}
-              onClick={setItem}
-              data-value={el}
-            >
-              {el}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+    <ul
+      className={`${styles.input__list} ${
+        listVisible ? styles.input__list_visible : ''
+      }`}
+    >
+      {list.map((el) => (
+        <li key={el}>
+          <button
+            type="button"
+            className={styles.input__item}
+            onClick={setItem}
+            data-value={el}
+          >
+            {el}
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 export default FormSelect;

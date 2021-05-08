@@ -29,7 +29,7 @@ const FormCardInput = (props: FieldHookConfig<string>) => {
       meta={meta}
       type={type}
       placeholder={placeholder}
-      maxlength={19}
+      maxLength={19}
       classMixin={value[0] === '4' ? 'visa' : undefined}
       onChange={formatCard}
     />

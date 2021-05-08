@@ -25,7 +25,7 @@ const FormCardDateInput = (props: FieldHookConfig<string>) => {
       meta={meta}
       type={type}
       placeholder={placeholder}
-      maxlength={7}
+      maxLength={7}
       onChange={formatCard}
     />
   );

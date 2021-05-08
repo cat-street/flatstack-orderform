@@ -8,7 +8,7 @@ type Props = {
   meta: FieldMetaProps<string>;
   type?: string;
   placeholder?: string;
-  maxlength?: number;
+  maxLength?: number;
   classMixin?: string;
   button?: JSX.Element;
   onChange?: (evt: ChangeEvent<HTMLInputElement>) => void;
@@ -19,7 +19,7 @@ const FormInput: FC<Props> = ({
   meta,
   type,
   placeholder,
-  maxlength,
+  maxLength,
   classMixin,
   button,
   onChange,
@@ -37,7 +37,7 @@ const FormInput: FC<Props> = ({
       } ${meta.touched && meta.error ? styles.input__field_error : ''}`}
       type={type}
       placeholder={placeholder}
-      maxLength={maxlength}
+      maxLength={maxLength}
       onChange={onChange}
       {...field}
     />
@@ -47,7 +47,7 @@ const FormInput: FC<Props> = ({
 FormInput.defaultProps = {
   type: 'text',
   placeholder: '',
-  maxlength: 100,
+  maxLength: 100,
   classMixin: undefined,
   button: undefined,
   onChange: undefined,

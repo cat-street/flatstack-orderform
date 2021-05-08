@@ -33,14 +33,16 @@
     }
 
     &_select {
+      cursor: pointer;
+
+      &_inactive {
       padding-right: 35px;
 
       background: url('../../assets/dropdown_icon.svg') calc(100% - 15px) center /
         12px 6px no-repeat;
+      }
 
-      cursor: pointer;
-
-      &-on {
+      &_active {
         padding-left: 35px;
 
         border-top-left-radius: 0;
