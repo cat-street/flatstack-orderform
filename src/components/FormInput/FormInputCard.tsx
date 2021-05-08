@@ -1,5 +1,5 @@
 import { FieldHookConfig, useField } from 'formik';
-import { ChangeEvent, useRef } from 'react';
+import { ChangeEvent } from 'react';
 
 import styles from './FormInput.module.scss';
 
@@ -10,8 +10,6 @@ const FormInputCard = (props: FieldHookConfig<string>) => {
   const { value } = meta;
   const { onChange, ...fieldProps } = field;
   const { setValue } = helpers;
-
-  const input = useRef<HTMLInputElement>(null);
 
   const formatCard = (evt: ChangeEvent<HTMLInputElement>) => {
     onChange(evt);
@@ -39,7 +37,6 @@ const FormInputCard = (props: FieldHookConfig<string>) => {
         placeholder={placeholder}
         onChange={formatCard}
         maxLength={19}
-        ref={input}
         {...fieldProps}
       />
     </div>

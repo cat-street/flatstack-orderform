@@ -26,7 +26,7 @@ const FormInputCity = (props: Props & FieldHookConfig<string>) => {
       ) : null}
 
       <input
-        className={`${styles.input__field} ${styles.input__field_country}
+        className={`${styles.input__field} ${styles.input__field_city}
           ${meta.touched && meta.error ? styles.input__field_error : ''}`}
         type={type}
         placeholder={placeholder}
