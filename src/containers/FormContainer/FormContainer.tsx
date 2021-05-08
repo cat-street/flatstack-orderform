@@ -6,12 +6,12 @@ import { BillingValues, ShippingValues } from '../../types/forms';
 import GeoContext from '../../context/geoContext';
 
 import StepsNav from '../../components/StepsNav/StepsNav';
-import ShippingForm from '../ShippingForm/ShippingForm';
+import ShippingForm from '../Forms/ShippingForm';
 import FormLayout from '../../components/FormLayout/FormLayout';
 import Confirmation from '../Confirmation/Confirmation';
 
-import BillingForm from '../BillingForm/BillingForm';
-import PaymentForm from '../PaymentForm/PaymentForm';
+import BillingForm from '../Forms/BillingForm';
+import PaymentForm from '../Forms/PaymentForm';
 
 const initialUserState = {
   shippingData: {

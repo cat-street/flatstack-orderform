@@ -64,17 +64,6 @@
     }
   }
 
-  &__detect {
-    @extend %link-button;
-    height: 100%;
-
-    position: absolute;
-    right: 12px;
-
-    display: flex;
-    align-items: center;
-  }
-
   &__list {
     width: 180px;
     max-height: 340px;

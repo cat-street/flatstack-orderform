@@ -1,17 +1,17 @@
-import { FC } from 'react';
+import { FC, ChangeEvent } from 'react';
 import { FieldInputProps, FieldMetaProps } from 'formik';
 
-import targetIcon from '../../assets/target_icon.svg';
 import styles from './FormInput.module.scss';
 
 type Props = {
   field: Partial<FieldInputProps<string>>;
   meta: FieldMetaProps<string>;
-  placeholder: string;
   type?: string;
+  placeholder?: string;
   maxlength?: number;
   classMixin?: string;
-  onDetect?: () => void;
+  button?: JSX.Element;
+  onChange?: (evt: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const FormInput: FC<Props> = ({
@@ -21,18 +21,11 @@ const FormInput: FC<Props> = ({
   placeholder,
   maxlength,
   classMixin,
-  onDetect,
+  button,
+  onChange,
 }: Props) => (
   <div className={styles.input}>
-    {onDetect && (
-      <button type="button" className={styles.input__detect} onClick={onDetect}>
-        <img
-          src={targetIcon}
-          className={styles['input__detect-icon']}
-          alt="Detect location button"
-        />
-      </button>
-    )}
+    {button || null}
 
     {meta.touched && meta.error ? (
       <div className={styles.input__error}>{meta.error}</div>
@@ -45,6 +38,7 @@ const FormInput: FC<Props> = ({
       type={type}
       placeholder={placeholder}
       maxLength={maxlength}
+      onChange={onChange}
       {...field}
     />
   </div>
@@ -52,9 +46,11 @@ const FormInput: FC<Props> = ({
 
 FormInput.defaultProps = {
   type: 'text',
+  placeholder: '',
   maxlength: 100,
   classMixin: undefined,
-  onDetect: undefined,
+  button: undefined,
+  onChange: undefined,
 };
 
 export default FormInput;

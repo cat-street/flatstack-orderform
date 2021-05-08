@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+
+.target {
+  @extend %link-button;
+  height: 100%;
+
+  position: absolute;
+  right: 12px;
+
+  display: flex;
+  align-items: center;
+}

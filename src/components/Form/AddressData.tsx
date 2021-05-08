@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import FormInputText from '../FormInput/FormInputText';
+import FormTextInput from '../../containers/FormInputs/FormTextInput';
 import FormSelect from '../FormInput/FormSelect';
-import CountryInput from '../../containers/CountryInput/CountryInput';
 
 import countryList from '../../utils/countryList';
 import styles from './OrderForm.module.scss';
+import FormCityInput from '../../containers/FormInputs/FormCityInput';
 
 type Props = {
   title: string;
@@ -16,19 +16,17 @@ const AddressData: FC<Props> = ({ title }: Props) => (
     <p className={styles.form__label}>{title}</p>
     <div className={`${styles.form__rows} ${styles.form__rows_big}`}>
       <div className={`${styles.form__rows} ${styles.form__rows_small}`}>
-        <FormInputText
+        <FormTextInput
           name="address"
-          type="text"
           placeholder="Street Address"
         />
-        <FormInputText
+        <FormTextInput
           name="address2"
-          type="text"
           placeholder="Apt, Suite, Bldg, Gate Code. (optional)"
         />
       </div>
 
-      <CountryInput name="city" type="text" placeholder="City" />
+      <FormCityInput name="city" placeholder="City" />
 
       <div className={`${styles.form__columns} ${styles.form__columns_big}`}>
         <FormSelect
@@ -36,7 +34,7 @@ const AddressData: FC<Props> = ({ title }: Props) => (
           list={countryList}
           placeholder="Country"
         />
-        <FormInputText name="postcode" type="text" placeholder="Zip" />
+        <FormTextInput name="postcode" placeholder="Zip" />
       </div>
     </div>
   </div>

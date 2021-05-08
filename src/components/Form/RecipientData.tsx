@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import FormInputText from '../FormInput/FormInputText';
+import FormTextInput from '../../containers/FormInputs/FormTextInput';
 
 import styles from './OrderForm.module.scss';
 
@@ -8,9 +8,11 @@ const RecipientData: FC = () => (
   <div className={styles.form__group}>
     <p className={styles.form__label}>Recipient</p>
     <div className={`${styles.form__rows} ${styles.form__rows_small}`}>
-      <FormInputText name="name" type="text" placeholder="Full Name" />
+
+      <FormTextInput name="name" placeholder="Full Name" />
+
       <div className={`${styles.form__columns} ${styles.form__columns_big}`}>
-        <FormInputText name="phone" type="text" placeholder="Daytime Phone" />
+        <FormTextInput name="phone" placeholder="Daytime Phone" />
         <p className={styles['form__phone-info']}>
           For delivery
           <br />

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import FormInputText from '../FormInput/FormInputText';
-import FormInputCard from '../FormInput/FormInputCard';
-import FormInputCardDate from '../FormInput/FormInputCardDate';
+import FormCardDateInput from '../../containers/FormInputs/FormCardDateInput';
+import FormCardInput from '../../containers/FormInputs/FormCardInput';
+import FormTextInput from '../../containers/FormInputs/FormTextInput';
 
 import styles from './OrderForm.module.scss';
 
@@ -10,17 +10,15 @@ const PaymentData: FC = () => (
   <>
     <div className={styles.form__group}>
       <p className={styles.form__label}>Cardholder Name</p>
-      <FormInputText
+      <FormTextInput
         name="name"
-        type="text"
         placeholder="Name as it appears on your card"
       />
     </div>
 
     <div className={styles.form__group}>
       <p className={styles.form__label}>Card Number</p>
-      <FormInputCard
-        type="text"
+      <FormCardInput
         name="card"
         placeholder="XXXX XXXX XXXX XXXX XXXX"
       />
@@ -30,11 +28,11 @@ const PaymentData: FC = () => (
       <div className={`${styles.form__columns} ${styles.form__columns_small}`}>
         <div>
           <p className={styles.form__label}>Expire Date</p>
-          <FormInputCardDate name="cardDate" type="text" placeholder="MM / YY" />
+          <FormCardDateInput name="cardDate" placeholder="MM / YY" />
         </div>
         <div>
           <p className={styles.form__label}>Security Code</p>
-          <FormInputText name="cvv" type="text" />
+          <FormTextInput name="cvv" maxLength={3} />
         </div>
       </div>
     </div>
