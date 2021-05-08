@@ -1,3 +1,9 @@
 .form-container {
   padding: 20px 40px 44px;
 }
+
+@media print {
+  .form-container {
+    padding: 0 40px;
+  }
+}

@@ -38,6 +38,8 @@
       background: url('../../assets/dropdown_icon.svg') calc(100% - 15px) center /
         12px 6px no-repeat;
 
+      cursor: pointer;
+
       &-on {
         padding-left: 35px;
 

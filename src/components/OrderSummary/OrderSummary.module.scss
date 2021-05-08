@@ -119,3 +119,31 @@
     }
   }
 }
+
+@media print {
+  .summary {
+    padding: 0 40px 40px;
+
+    &__title {
+      font-size: 22px;
+    }
+
+    &__edit-button {
+      display: none;
+    }
+
+    &__item {
+      &-name, &-price {
+        font-size: 16px;
+      }
+
+      &-info p {
+        font-size: 14px;
+      }
+    }
+
+    &__subtotal, &__total {
+      font-size: 16px;
+    }
+  }
+}

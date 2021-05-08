@@ -80,3 +80,9 @@
     display: none;
   }
 }
+
+@media print {
+  .header__cart {
+    display: none;
+  }
+}

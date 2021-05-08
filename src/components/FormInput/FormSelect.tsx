@@ -13,7 +13,7 @@ type Props = {
   list: string[];
 };
 
-const FormInputSelect = (props: Props & FieldHookConfig<string>) => {
+const FormSelect = (props: Props & FieldHookConfig<string>) => {
   const [field, meta, helpers] = useField(props);
   const [currentList, setList] = useState<Array<string>>([]);
 
@@ -97,4 +97,4 @@ const FormInputSelect = (props: Props & FieldHookConfig<string>) => {
   );
 };
 
-export default FormInputSelect;
+export default FormSelect;
