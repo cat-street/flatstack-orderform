@@ -39,10 +39,10 @@ const billingSchema = Yup.object({
 const paymentSchema = Yup.object({
   name: Yup.string().required('Please enter the name from the card'),
   card: Yup.string()
-    .matches(/^[0-9]{16,20}$/, 'Card number is invalid')
+    .matches(/^([0-9]{4} ){3}[0-9]{4}$/, 'Card number is invalid')
     .required('Card number is required'),
   cardDate: Yup.string()
-    .matches(/^[0-1][0-9]2[1-9]$/, 'Card number is invalid')
+    .matches(/^[0-1][0-9] \/ 2[1-9]$/, 'Card number is invalid')
     .required('Card expire date is required'),
   cvv: Yup.string()
     .matches(/^[0-9]{3}$/, 'Not a valid CVV')

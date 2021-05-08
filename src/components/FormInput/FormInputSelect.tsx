@@ -14,13 +14,15 @@ type Props = {
 };
 
 const FormInputSelect = (props: Props & FieldHookConfig<string>) => {
-  const { list, placeholder } = props;
   const [field, meta, helpers] = useField(props);
+  const [currentList, setList] = useState<Array<string>>([]);
+
+  const { list, placeholder } = props;
   const { onChange, onBlur, ...fieldProps } = field;
   const { setValue } = helpers;
+
   const listEl = useRef<HTMLUListElement>(null);
   const inputEl = useRef<HTMLInputElement>(null);
-  const [currentList, setList] = useState<Array<string>>([]);
 
   const showList = () => {
     listEl.current?.classList.add(styles.input__list_visible);
