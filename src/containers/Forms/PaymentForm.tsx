@@ -9,10 +9,9 @@ import PaymentData from '../../components/Form/PaymentData';
 
 type Props = {
   setStep: (n: number) => void;
-  setData: (data: { maskedCardNumber: string }) => void;
 };
 
-const PaymentForm: FC<Props> = ({ setStep, setData }: Props) => (
+const PaymentForm: FC<Props> = ({ setStep }: Props) => (
   <Formik
     initialValues={{
       name: '',
@@ -21,9 +20,7 @@ const PaymentForm: FC<Props> = ({ setStep, setData }: Props) => (
       cvv: '',
     }}
     validationSchema={paymentSchema}
-    onSubmit={(values) => {
-      const maskedCardNumber = `${values.card.slice(0, 2)}xxxxxx${values.card.slice(-2)}`;
-      setData({ maskedCardNumber });
+    onSubmit={() => {
       setStep(4);
     }}
   >

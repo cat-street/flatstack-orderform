@@ -34,7 +34,6 @@ const initialUserState = {
   },
   shippingValid: false,
   billingValid: false,
-  maskedCardNumber: '',
 };
 
 const FormContainer: FC = () => {
@@ -72,7 +71,7 @@ const FormContainer: FC = () => {
       break;
     }
     case 3: {
-      form = <PaymentForm setStep={setStep} setData={setData} />;
+      form = <PaymentForm setStep={setStep} />;
       break;
     }
     case 4: {
