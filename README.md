@@ -5,39 +5,50 @@
 
 A sample order form application imitating the ordering process at an online store.
 
-* Current live version at [https://zen-austin-25d292.netlify.app](https://zen-austin-25d292.netlify.app)
+* Current live version at [https://cat-street.github.io/flatstack-orderform](https://cat-street.github.io/flatstack-orderform)
 
 ---
+
+## Usage
+* Installing dependencies:
+```
+npm install
+```
+* Run in development mode:
+```
+npm start
+```
+
 ## Features
 
-* Books are loaded from a JSON file into a global state (database emulation)
-* If there are more than 10 books to load, a pagination at the bottom of the page appears
-* Users can search the library by an author or by a title (search for both fields in one query)
-* Users can sort the library by a title, by an author, or by rating
-* The main library page features a basic info of every book and a rating, authenticated users can vote here
-* A click on a cover or on a 'Read more' link leads to a single book page view
-* A single book is loaded from a JSON file (not from a state, hence edits are not saved globally)
-* There is a detailed info on a single book page, as well as comments section
-* Authenticated users can vote, leave comments or edit info of the book they added (user ID is set as 'owner' in the mock database)
-* Users can log in/log out by the link of the top of the page (test id: *test-user*, test password: *12345*). Credentials are hardcoded into a global state. Errors are shown, if the username or the password is incorrect.
-* Authentication is checked by a token created in a browser during the successful sign in.
+* A multi-step ordering form
+* Uses fields and form validation
+* Each next step is available after previous step successful validation
+* Custom error messages appear on field blur or on submitting attempt
+* A custom country select input based on a list of countries with filtering capability
+* Prompts to detect a user location at loading
+* Fetches an address from an external API using detected coordinates (if detecting is allowed)
+* Fills a country, a city and a post code fields if address is detected
+* Formats entered card number and expiration date
+* Detects Visa cards
+* Allows to print a printer-optimized order summary at the final stage
 
 ## Technology
 
-* React (functional components, hooks, router)
-* Redux
+* React (functional components, hooks, Context, views/logic separation)
+* Formik + Yup validation
 * TypeScript
 * JavaScript (ES6)
-* Bootstrap (bootstrap-react)
+* SASS, CSS Modules
+* Adaptive layout, semantic HTML
+* BEM model
+* Geolocation API
+* [LocationIQ](https://locationiq.com/) API for address fetching
 * Airbnb-typescript ESLint codestyle
 
-## To Do
-* TOTAL REDUX STORE REDESIGN (I know, I know)
-* Ascending/Descending sorting by multiple clicks
-* A separate /search route
-* A /category route
-* Forms validation
-* Ability to delete comments
-* Ability to add new books
-* Refactoring
-* Design improvements
+## Possible improvements
+* Automated testing
+* Card system detection and validation
+* Card input formatting algorithm improvement
+* Using state manager for entered data
+* Using routes for form steps
