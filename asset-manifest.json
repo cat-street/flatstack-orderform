@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/flatstack-orderform/static/css/main.c2cb2043.chunk.css",
-    "main.js": "/flatstack-orderform/static/js/main.acc2d894.chunk.js",
-    "main.js.map": "/flatstack-orderform/static/js/main.acc2d894.chunk.js.map",
+    "main.js": "/flatstack-orderform/static/js/main.7c21ead0.chunk.js",
+    "main.js.map": "/flatstack-orderform/static/js/main.7c21ead0.chunk.js.map",
     "runtime-main.js": "/flatstack-orderform/static/js/runtime-main.44caf4ca.js",
     "runtime-main.js.map": "/flatstack-orderform/static/js/runtime-main.44caf4ca.js.map",
     "static/js/2.c367d4a2.chunk.js": "/flatstack-orderform/static/js/2.c367d4a2.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.44caf4ca.js",
     "static/js/2.c367d4a2.chunk.js",
     "static/css/main.c2cb2043.chunk.css",
-    "static/js/main.acc2d894.chunk.js"
+    "static/js/main.7c21ead0.chunk.js"
   ]
 }
