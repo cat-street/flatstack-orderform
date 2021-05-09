@@ -11,7 +11,7 @@ const PaymentData: FC = () => (
     <div className={styles.form__group}>
       <p className={styles.form__label}>Cardholder Name</p>
       <FormTextInput
-        name="name"
+        name="ccname"
         placeholder="Name as it appears on your card"
       />
     </div>
@@ -19,7 +19,7 @@ const PaymentData: FC = () => (
     <div className={styles.form__group}>
       <p className={styles.form__label}>Card Number</p>
       <FormCardInput
-        name="card"
+        name="cardnumber"
         placeholder="XXXX XXXX XXXX XXXX XXXX"
       />
     </div>
@@ -28,11 +28,11 @@ const PaymentData: FC = () => (
       <div className={`${styles.form__columns} ${styles.form__columns_small}`}>
         <div>
           <p className={styles.form__label}>Expire Date</p>
-          <FormCardDateInput name="cardDate" placeholder="MM / YY" />
+          <FormCardDateInput name="cc-exp" placeholder="MM / YY" />
         </div>
         <div>
           <p className={styles.form__label}>Security Code</p>
-          <FormTextInput name="cvv" maxLength={3} />
+          <FormTextInput name="cvc" maxLength={3} />
         </div>
       </div>
     </div>
