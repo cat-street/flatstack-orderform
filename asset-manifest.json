@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/flatstack-orderform/static/css/main.c2cb2043.chunk.css",
+    "main.js": "/flatstack-orderform/static/js/main.6ce4b196.chunk.js",
+    "main.js.map": "/flatstack-orderform/static/js/main.6ce4b196.chunk.js.map",
+    "runtime-main.js": "/flatstack-orderform/static/js/runtime-main.44caf4ca.js",
+    "runtime-main.js.map": "/flatstack-orderform/static/js/runtime-main.44caf4ca.js.map",
+    "static/js/2.c367d4a2.chunk.js": "/flatstack-orderform/static/js/2.c367d4a2.chunk.js",
+    "static/js/2.c367d4a2.chunk.js.map": "/flatstack-orderform/static/js/2.c367d4a2.chunk.js.map",
+    "index.html": "/flatstack-orderform/index.html",
+    "static/css/main.c2cb2043.chunk.css.map": "/flatstack-orderform/static/css/main.c2cb2043.chunk.css.map",
+    "static/js/2.c367d4a2.chunk.js.LICENSE.txt": "/flatstack-orderform/static/js/2.c367d4a2.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/flatstack-orderform/static/media/HelveticaNeueCyr-Roman.0247694e.woff",
+    "static/media/cart_icon.bfe98a7a.svg": "/flatstack-orderform/static/media/cart_icon.bfe98a7a.svg",
+    "static/media/StepsNav.module.scss": "/flatstack-orderform/static/media/divider.6234645e.svg",
+    "static/media/FormInput.module.scss": "/flatstack-orderform/static/media/visa_icon.6d27a0e1.svg",
+    "static/media/logo_img.b213aa54.svg": "/flatstack-orderform/static/media/logo_img.b213aa54.svg",
+    "static/media/logo_txt.6a3ddcbe.svg": "/flatstack-orderform/static/media/logo_txt.6a3ddcbe.svg",
+    "static/media/FormHeader.module.scss": "/flatstack-orderform/static/media/secure_icon.3ebc52ad.svg",
+    "static/media/target_icon.8358fd8e.svg": "/flatstack-orderform/static/media/target_icon.8358fd8e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.44caf4ca.js",
+    "static/js/2.c367d4a2.chunk.js",
+    "static/css/main.c2cb2043.chunk.css",
+    "static/js/main.6ce4b196.chunk.js"
+  ]
+}
