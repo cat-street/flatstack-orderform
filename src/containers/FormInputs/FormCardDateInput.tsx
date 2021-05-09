@@ -13,8 +13,9 @@ const FormCardDateInput = (props: FieldHookConfig<string>) => {
   const formatCard = (evt: ChangeEvent<HTMLInputElement>) => {
     onChange(evt);
     let { value } = evt.target;
+    value = value.replace(/\D/g, '');
     if (value.length > 2) {
-      value = value.replace(/\D/g, '').match(/.{1,2}/g)!.join(' / ');
+      value = value.match(/.{1,2}/g)!.join(' / ');
     }
     setValue(value);
   };

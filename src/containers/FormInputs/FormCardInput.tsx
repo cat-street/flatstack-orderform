@@ -14,11 +14,9 @@ const FormCardInput = (props: FieldHookConfig<string>) => {
   const formatCard = (evt: ChangeEvent<HTMLInputElement>) => {
     onChange(evt);
     let currentValue = evt.target.value;
-    if (currentValue.length > 0) {
-      currentValue = currentValue
-        .replace(/\D/g, '')
-        .match(/.{1,4}/g)!
-        .join(' ');
+    currentValue = currentValue.replace(/\D/g, '');
+    if (currentValue.length > 4) {
+      currentValue = currentValue.match(/.{1,4}/g)!.join(' ');
     }
     setValue(currentValue);
   };
