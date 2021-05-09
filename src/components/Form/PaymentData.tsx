@@ -32,7 +32,7 @@ const PaymentData: FC = () => (
         </div>
         <div>
           <p className={styles.form__label}>Security Code</p>
-          <FormTextInput name="cvc" maxLength={3} />
+          <FormTextInput type="password" name="cvc" maxLength={3} />
         </div>
       </div>
     </div>
