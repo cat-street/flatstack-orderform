@@ -14,10 +14,10 @@ type Props = {
 const PaymentForm: FC<Props> = ({ setStep }: Props) => (
   <Formik
     initialValues={{
-      name: '',
-      card: '',
-      cardDate: '',
-      cvv: '',
+      ccname: '',
+      cardnumber: '',
+      'cc-exp': '',
+      cvc: '',
     }}
     validationSchema={paymentSchema}
     onSubmit={() => {

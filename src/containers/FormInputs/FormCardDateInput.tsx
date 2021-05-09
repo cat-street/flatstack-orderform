@@ -13,9 +13,14 @@ const FormCardDateInput = (props: FieldHookConfig<string>) => {
   const formatCard = (evt: ChangeEvent<HTMLInputElement>) => {
     onChange(evt);
     let { value } = evt.target;
-    value = value.replace(/\D/g, '');
+    value = value.replace(/[\D]/g, '');
     if (value.length > 2) {
-      value = value.match(/.{1,2}/g)!.join(' / ');
+      const month = value.slice(0, 2);
+      let year = value.slice(2);
+      if (year.length > 1) {
+        year = year.slice(-2);
+      }
+      value = `${month} / ${year}`;
     }
     setValue(value);
   };
