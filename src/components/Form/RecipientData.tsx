@@ -14,9 +14,7 @@ const RecipientData: FC = () => (
       <div className={`${styles.form__columns} ${styles.form__columns_big}`}>
         <FormTextInput name="phone" placeholder="Daytime Phone" />
         <p className={styles['form__phone-info']}>
-          For delivery
-          <br />
-          questions only
+          For delivery questions only
         </p>
       </div>
     </div>
