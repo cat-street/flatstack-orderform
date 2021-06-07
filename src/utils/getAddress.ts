@@ -44,7 +44,7 @@ async function getAddress() {
     const data: Record<string, any> = await getAddressFromCoords(coordinates);
     if (data) {
       return {
-        city: data.address.city,
+        city: data.address.state,
         country: data.address.country,
         postcode: data.address.postcode,
       };
